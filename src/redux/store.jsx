@@ -1,0 +1,19 @@
+import { configureStore } from "@reduxjs/toolkit";
+import bazarReducer from "./bazarSlice";
+import storage from "redux-persist/lib/storage";
+import { persistReducer, persistStore } from "redux-persist";
+
+const persistConfig = {
+  key: "root",
+  storage,
+};
+
+const persistedReducer = persistReducer(persistConfig, bazarReducer);
+
+export const store = configureStore({
+  reducer: {
+    bazar: persistedReducer,
+  },
+});
+
+export const persistor = persistStore(store);
