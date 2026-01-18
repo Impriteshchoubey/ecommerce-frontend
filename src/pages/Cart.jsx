@@ -57,7 +57,7 @@ const Cart = () => {
 
       // 1️⃣ Create Payment Intent
       const { data } = await axios.post(
-        "http://localhost:5000/create-payment-intent",
+        "https://ecommerce-backend-production-a727.up.railway.app/create-payment-intent",
         { amount: total * 100 } // in paise/cents
       );
 
